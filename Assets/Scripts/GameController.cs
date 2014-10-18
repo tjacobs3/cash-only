@@ -75,13 +75,7 @@ public class GameController : MonoBehaviour {
 		List<int> correctChange = optimalChangeGreedy(amount, referenceChange);
 		referenceChange.OrderByDescending(x => x);
 		input.OrderByDescending(x => x);
-		foreach(int x in correctChange) {
-			Debug.Log(x);
-		}
-		Debug.Log ("=============");
-		foreach(int x in input) {
-			Debug.Log(x);
-		}
+
 		return input.SequenceEqual(correctChange);
 	}
 
