@@ -8,16 +8,7 @@ public class Cash : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if(amount >= 100) {
-			amountText.text = (amount / 100f).ToString("#");
-		} else {
-			amountText.text = amount.ToString();
-		}
-
-		amountText.renderer.sortingLayerID = 1;
-		amountText.renderer.sortingOrder = 1;
-		renderer.sortingLayerID = 0;
-		renderer.sortingOrder = 0;
+        setDisplay();
 	}
 	
 	// Update is called once per frame
@@ -32,4 +23,26 @@ public class Cash : MonoBehaviour {
 			animation.Play();
 		}
 	}
+
+    void setDisplay()
+    {
+        if (amount >= 100)
+        {
+            amountText.text = (amount / 100f).ToString("#");
+        }
+        else
+        {
+            amountText.text = amount.ToString();
+        }
+
+        amountText.renderer.sortingLayerID = 1;
+        amountText.renderer.sortingOrder = 1;
+        renderer.sortingLayerID = 0;
+        renderer.sortingOrder = 0;
+    }
+
+    public void setAmount(int newAmount) {
+        amount = newAmount;
+        setDisplay();
+    }
 }

@@ -6,6 +6,7 @@ public class RegisterScreen : MonoBehaviour {
 	public GUIText screenText;
 
 	public GameController gameController;
+    public CashDrawer cashDrawer;
 
 	protected List<int> changePaid = new List<int>();
 	protected int owed = 565;
@@ -38,10 +39,12 @@ public class RegisterScreen : MonoBehaviour {
 	}
 
 	public void openDrawer() {
+        cashDrawer.setCashValues(new List<int> { 1, 5, 10, 25, 100, 500, 1000, 2000 });
 		drawOpen = true;
 	}
 
 	public void closeDrawer() {
+        cashDrawer.removeCash();
 		drawOpen = false;
 	}
 
